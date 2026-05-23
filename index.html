@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>演算法學習筆記 | 工業棕調簡約風</title>
+    <!-- 引入字型與基礎重設 -->
+     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
+    
+</head>
+<body class="leading-relaxed">
+
+    <!-- 標頭看板區 -->
+    <header class="header-container">
+        <h1 class="main-title">
+            Algorithm <span class="main-title-bold">Archive</span>
+        </h1>
+        <p class="subtitle">Logic discovery with a touch of warmth</p>
+        <div class="header-divider"></div>
+    </header>
+
+    <!-- 黏性導覽列 -->
+    <nav id="navbar" class="sticky-nav">
+        <div class="nav-inner">
+            <ul class="nav-list">
+                <li><a href="#intro" class="nav-link">演算法介紹</a></li>
+                <li><a href="#path" class="nav-link">學習歷程</a></li>
+                <li><a href="#verification" class="nav-link">查證與修正</a></li>
+                <li><a href="#visual" class="nav-link">視覺化說明</a></li>
+                <li><a href="#cases" class="nav-link">應用案例</a></li>
+                <li><a href="#reflection" class="nav-link">學習與反思</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 主要內容區 -->
+    <main class="main-container">
+
+        <!-- 01 演算法介紹 -->
+        <section id="intro" class="section-gap scroll-offset">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <h1 class="section-title">演算法介紹</h1>
+            </div>
+            
+            <div class="industrial-border">
+                <!-- 預留的內容卡片 -->
+                <div class="card-container">
+                    <h2 class="h2-alt">簡介</h2>
+                    <div class="skeleton-stack">
+                        <h4>LDM原理</h4>
+                        <p class="card-code-comment">
+                        主要的學習方法是逆向去噪過程（Reverse Denoising）。
+                        </p>
+                        <p class="card-code-comment">
+                        而核心原理為空間壓縮與轉換，結合了VAE的數據壓縮能力和DDPM的高質量生成，LDM先將圖片壓縮至維度較小但保留核心特徵的潛在空間進行去噪處理，在低維度中進行擴散，能大幅降低運算成本與記憶體消耗。
+                        </p>
+                        <p class="card-code-comment">
+                        LDM繼承了DDPM訓練穩定的特性，避免了GAN常見的訓練失衡問題。
+                        模型從完全隨機的潛在雜訊開始，模仿DDPM的反向過程，按順序在多個離散時間步（Timesteps）中預測並剔除雜訊 。
+                        </p>
+                    </div>
+                    <div class="skeleton-stack">
+                        <h4>運作流程</h4>
+                        <ol  class="list-alt">
+                        <li>
+                            感知壓縮（Perceptual Compression），運用VAE將高維度資料壓縮成潛在向量（Latent Vector）
+                        </li>
+                        <li>
+                            在潛在空間中進行加噪，也就是前向過程，使之成為潛在噪聲（Latent Noise）。
+                        </li>
+                        <li>
+                            使用DDPM的反向過程在潛在空間進行去噪，顯現圖像特徵。
+                        </li>
+                        <li>
+                            文字引導去噪方向，透過交叉注意力機制（Cross-Attention）讓模型理解文字指令與圖像內容的對應關係，以確保符合需求。
+                        </li>
+                        <li >
+                            利用VAE解碼器將完成的潛在向量還原成高解析度影像。
+                        </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- 預留的內容卡片 -->
+                <div class="card-container">
+                    <h2 class="h2-alt">詳細運作原理</h2>
+                    <div class="skeleton-stack">
+                        <h4>壓縮機制</h4>
+                    </div>
+                    <div class="skeleton-stack">
+                        <h4>潛在擴散</h4>
+                    </div>
+                    <div class="skeleton-stack">
+                        <h4>交叉注意力機制</h4>
+                    </div>
+                    <div class="skeleton-stack">
+                        <h4>影像解壓縮還原</h4>
+                    </div>
+                </div>
+
+                <!-- 縮小占比且配色低調的下拉式補充知識區塊 -->
+                <div class="dropdown-trigger">
+                    <div class="dropdown-header-bar">
+                        <div class="dropdown-title-group">
+                            <span class="dropdown-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                            </span>
+                            <h3 class="dropdown-title-text">先備知識：</h3>
+                        </div>
+                        <span class="dropdown-arrow">▼</span>
+                    </div>
+                    
+                    <div class="dropdown-content">
+                        <div class="dropdown-body">
+                            <div class="dropdown-grid">
+                                <!-- 第一組內容 -->
+                                <div class="dropdown-item">
+                                    <p class="dropdown-item-title">01. 數學證明與推導</p>
+                                    <p class="dropdown-item-desc">此處可填寫演算法背後的數學基礎或邏輯證明過程。</p>
+                                </div>
+                                <!-- 第二組內容 -->
+                                <div class="dropdown-item">
+                                    <p class="dropdown-item-title">02. 邊界條件處理</p>
+                                    <p class="dropdown-item-desc">針對極端輸入（如空值、極大值）的穩定性討論。</p>
+                                </div>
+                            </div>
+                            <div class="dropdown-footer-code">
+                                // 預留進階參數配置
+                                const config = { precision: "high" };
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 02 學習歷程 -->
+        <section id="path" class="section-gap scroll-offset">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <h2 class="section-title">學習歷程</h2>
+            </div>
+            
+            <div class="industrial-border">
+                <div class="timeline-wrapper">
+                    <div class="timeline-item">
+                        <div class="timeline-node node-active"></div>
+                        <p class="timeline-phase phase-active">Phase 01 / 初步探索</p>
+                        <div class="timeline-box box-active"></div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-node node-inactive"></div>
+                        <p class="timeline-phase phase-inactive">Phase 02 / 針對性問答</p>
+                        <div class="timeline-box box-inactive"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 03 查證與修正 -->
+        <section id="verification" class="section-gap scroll-offset">
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <h2 class="section-title">查證與修正</h2>
+            </div>
+            
+            <div class="industrial-border">
+                <div class="card-container">
+                    <p class="text-mod">關於LDM的原理與運作流程，gemini基本回答正確，但並不詳細與完整，因此上網搜尋相關論文以及文章，先大致讀過網路上他人整理的中文筆記，隨後上傳英文論文至notebooklm統整，並藉由一步步詢問整理與翻譯，補足LDM的完整原理。
+                        補足了更詳細的U-Net原理，並比較原始的U-Net與在LDM中的U-Net的差異，以及解釋了U-Net在LDM中是如何運作並和其他機制協同作業。
+                    </p>
+                    <p class="text-mod">
+                        除此之外，LDM的壓縮步驟有更詳盡的解釋，從原本單純的壓縮分成感知壓縮與語意壓縮，感知壓縮由VAE負責，VAE的任務就是把這些「不具語義意義」的細節消除，將影像進行空間降維；語意壓縮則是由擴散模型進行，在VAE壓縮完影像後，針對語意及概念進行學習。
+                        同時也針對了LDM的去噪、通道拼接和交叉注意力機制做更深入的學習。
+                        由於論文為全英文內容，故利用notebooklm整理與尋找原文提及相關知識的段落，並藉由翻譯該段落來確認ai的回覆是否正確。
+                    </p>
+                </div>
+
+                <div class="verification-grid">
+                    <!-- 原始認知 -->
+                    <div class="verification-card card-original">
+                        <h4 class="verification-title title-original">
+                            <span class="square-dot dot-grey"></span> 原始認知
+                        </h4>
+                        <div class="verification-placeholder placeholder-grey"></div>
+                    </div>
+                    
+                    <!-- 修正後知識 -->
+                    <div class="verification-card card-corrected">
+                        <h4 class="verification-title title-corrected">
+                            <span class="square-dot dot-brown"></span> 修正後知識
+                        </h4>
+                        <div class="verification-placeholder placeholder-warm"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 04 視覺化說明 -->
+        <section id="visual" class="section-gap scroll-offset">
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <h2 class="section-title">視覺化說明</h2>
+            </div>
+            
+            <div class="industrial-border">
+                <div class="visual-container">
+                    <div class="visual-inner">
+                        <p class="visual-canvas-title">[ Visualization Canvas ]</p>
+                        <p class="visual-canvas-sub">Ready for Canvas / SVG Injection</p>
+                    </div>
+                    <div class="visual-overlay-grid"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 05 應用案例 -->
+        <section id="cases" class="section-gap scroll-offset">
+            <div class="section-header">
+                <span class="section-number">05</span>
+                <h2 class="section-title">應用案例</h2>
+            </div>
+            
+            <div class="industrial-border">
+                <div class="cases-grid">
+                    <!-- 案例 A -->
+                    <div class="case-card">
+                        <div class="case-bar"></div>
+                        <h5 class="case-title">應用案例 A</h5>
+                        <p class="case-sub">// Case application 01</p>
+                    </div>
+                    
+                    <!-- 案例 B -->
+                    <div class="case-card">
+                        <div class="case-bar"></div>
+                        <h5 class="case-title">應用案例 B</h5>
+                        <p class="case-sub">// Case application 02</p>
+                    </div>
+                    
+                    <!-- 案例 C -->
+                    <div class="case-card">
+                        <div class="case-bar"></div>
+                        <h5 class="case-title">應用案例 C</h5>
+                        <p class="case-sub">// Case application 03</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 06 學習與反思 -->
+        <section id="reflection" class="scroll-offset" style="padding-bottom: 5rem;">
+            <div class="section-header">
+                <span class="section-number">06</span>
+                <h2 class="section-title">學習與反思</h2>
+            </div>
+            
+            <div class="industrial-border">
+                <div class="reflection-container">
+                    <div class="reflection-inner-width">
+                        <p class="reflection-paragraph">
+                            當需要廣泛的學習時，AI起了很大的作用，有很多關於AI的知識還不夠充足，有些專有名詞無法清楚含意，再加上LDM這個模型是從DDPM和VAE兩個模型結合並衍生出來的結果，很多詳細的運作流程都需要去介紹其他兩個基礎模型的文章中另外學習補足，透過AI，可以在不理解詞彙意思時直接詢問，讓自己在閱讀相關文章時有更完備的基礎知識，也能閱讀得更加流暢。
+                        </p>
+                        <p class="reflection-paragraph">
+                            然而使用AI時最大的限制即是回應長度的問題及AI幻覺，前者的問題會導致AI在介紹某一知識時無法完整且詳細地解釋，會以最簡要、重點的方式去說明，但在需要更詳細的原理時反而會有些簡略，這時就需要其他文獻去補足自己需要的知識。而後者則是在學習時最擔憂的一種情況，當基礎知識還不完善時，很容易被AI牽著走，雖然現在的AI已經比過往好了許多，但若是不多加確認則很容易學習到錯誤的知識，這對於初學者來說是一件不太好的影響，因此使用AI學習是無法全盤接受AI的答覆的，還需要針對內容逐一去跟正式文獻去比對，跟閱讀教科書以及正式的論文相比，需要多一層時間去把關來源的正確性。
+                        </p>
+                        <p class="reflection-paragraph">
+                            最後，在這次的AI學習體驗中，我對於生成式AI有更進一步的理解，最初在得知生成式AI時，只知道生成圖像與增加雜訊有關聯，但並不知道是如何預測加噪，也不知道生成式AI是如何從當初的生成效率低且圖片模糊，到現在能夠較快速、較高解析度地生成圖片。在這次的學習中我了解到了LDM模型的基礎架構，同時也學習到與LDM相關的DDPM、VAE、U-NET、交叉注意力機制等等，也更清楚關於隱藏擴藏是如何運作、如何運用以前的模型改良、結合並提升效率。除此之外也對於Notebooklm這項工具的用法更加熟悉，也更加清楚確保來源正確的重要性。
+                        </p>
+                        
+                        <div class="reflection-footer">
+                            <div class="reflection-footer-line"></div>
+                            <span class="reflection-footer-tag">Post-process Reflection</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 頁尾 -->
+    <footer class="footer-container">
+        <div class="footer-inner">
+            <p class="footer-version">Archive System v1.0</p>
+            <p class="footer-copyright">© 2024 Crafted with Industrial Precision</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript 邏輯控制 -->
+    <script>
+        // 控制導覽列在滾動時的立體感與內距變化
+        const nav = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                nav.classList.add('nav-sticky-active');
+            } else {
+                nav.classList.remove('nav-sticky-active');
+            }
+        });
+    </script>
+</body>
+</html>

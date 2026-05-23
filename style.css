@@ -1,0 +1,655 @@
+
+        /* CSS 全域變數定義：工業棕調與米白底色 */
+        :root {
+            --bg-color: #FAF9F6;
+            --text-color: #3F3F46;
+            --primary-brown: #967451;
+            --light-brown: #E8E2D9;
+            --zinc-800: #27272A;
+            --zinc-600: #52525B;
+            --zinc-500: #71717A;
+            --zinc-400: #A1A1AA;
+            --zinc-200: #E4E4E7;
+            --zinc-100: #F4F4F5;
+            --zinc-50: #FAFAFA;
+            
+            --nav-bg: rgba(250, 249, 246, 0.8);
+            --header-bg: #F4F2ED;
+            --dropdown-bg: #F1EFEC;
+            --dropdown-hover-bg: #EBE8E4;
+            --dropdown-border: #B6A491;
+        }
+
+        /* 基礎重設 */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans TC', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* 頁面主要結構與容器 */
+        .main-container {
+            max-width: 56rem; /* 約 896px */
+            margin: 0 auto;
+            padding: 5rem 1.5rem;
+        }
+
+        .section-gap {
+            margin-bottom: 8rem;
+        }
+
+        .scroll-offset {
+            scroll-margin-top: 6rem;
+        }
+
+        /* 工業風裝飾線條 */
+        .industrial-border {
+            border-left: 4px solid var(--primary-brown);
+            padding-left: 2rem;
+        }
+
+        /* 網站標題區域 */
+        .header-container {
+            text-align: center;
+            padding: 6rem 1.5rem 3rem 1.5rem;
+            background-color: var(--header-bg);
+        }
+
+        .main-title {
+            font-size: 2.25rem;
+            font-weight: 300;
+            letter-spacing: 0.2em;
+            color: var(--zinc-800);
+            text-transform: uppercase;
+        }
+
+        @media (min-width: 768px) {
+            .main-title {
+                font-size: 3rem;
+            }
+        }
+
+        .main-title-bold {
+            font-weight: 700;
+            color: var(--primary-brown);
+        }
+
+        .subtitle {
+            margin-top: 1rem;
+            color: var(--zinc-500);
+            letter-spacing: 0.15em;
+            font-weight: 300;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            font-style: italic;
+        }
+
+        .header-divider {
+            margin: 1.5rem auto 0 auto;
+            width: 3rem;
+            height: 4px;
+            background-color: var(--primary-brown);
+        }
+
+        /* 黏性導覽列 */
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background-color: var(--nav-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-top: 1px solid var(--zinc-200);
+            border-bottom: 1px solid var(--zinc-200);
+            transition: all 0.3s ease;
+        }
+
+        .nav-inner {
+            max-width: 64rem;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .nav-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 1rem 0;
+            list-style: none;
+        }
+
+        @media (min-width: 768px) {
+            .nav-list {
+                gap: 2rem;
+            }
+        }
+
+        .nav-link {
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            color: var(--zinc-600);
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 0.25rem 0.5rem;
+            transition: color 0.2s ease;
+        }
+
+        @media (min-width: 768px) {
+            .nav-link {
+                font-size: 0.875rem;
+            }
+        }
+
+        .nav-link:hover {
+            color: var(--primary-brown);
+        }
+
+        .nav-sticky-active {
+            box-shadow: 0 4px 6px -1px rgba(150, 116, 81, 0.08);
+            padding-top: 0.25rem;
+            padding-bottom: 0.25rem;
+        }
+
+        /* 章節標題 */
+        .section-header {
+            display: flex;
+            align-items: flex-end;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-number {
+            color: var(--light-brown);
+            font-size: 4.5rem;
+            font-weight: 100;
+            line-height: 1;
+        }
+
+        .section-title {
+            font-size: 1.875rem;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            color: var(--zinc-800);
+            margin-bottom: 0.25rem;
+        }
+
+        /* 內容卡片基底 */
+        .card-container {
+            background-color: #FFFFFF;
+            border-radius: 0.125rem;
+            border: 1px solid var(--zinc-100);
+            box-shadow: 4px 4px 0px 0px var(--light-brown);
+            margin-bottom: 20px;
+            padding-top: 10px;
+        }
+
+        .h2-alt{
+            font-size: 25px;
+            padding-left: 20px;
+            background-color: #967451;
+            color: #fff;
+            margin: 10px;
+        }
+
+        .card-code-comment {
+            color: #52525b;
+            font-family: monospace;
+            font-size: 1rem;
+            text-indent: 2.5em;
+            
+        }
+
+        .list-alt{
+            margin-left: 35px;
+            color: #52525b;
+        }
+
+        /* 預留排版骨架線條 */
+        .skeleton-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 0rem;
+            margin: 0 2rem 2rem 2rem ;
+        }
+
+        .skeleton-line {
+            height: 1rem;
+            background-color: var(--zinc-50);
+            border-radius: 0.125rem;
+        }
+
+        .skeleton-line-full { width: 100%; }
+        .skeleton-line-5-6 { width: 83.333%; }
+        .skeleton-line-4-6 { width: 66.666%; }
+
+        /* 補充知識下拉選單 */
+        .dropdown-trigger {
+            position: relative;
+            max-width: 28rem; /* 縮小佔比 */
+            background-color: var(--dropdown-bg);
+            border-left: 2px solid var(--dropdown-border);
+            padding: 1rem;
+            border-radius: 0.125rem;
+            cursor: help;
+            transition: all 0.3s ease;
+            margin-top: 1.5rem;
+        }
+
+        .dropdown-trigger:hover {
+            background-color: var(--dropdown-hover-bg);
+        }
+
+        .dropdown-header-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .dropdown-title-group {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .dropdown-icon {
+            color: var(--dropdown-border);
+            display: flex;
+            align-items: center;
+        }
+
+        .dropdown-title-text {
+            color: var(--zinc-500);
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+        }
+
+        .dropdown-arrow {
+            color: var(--dropdown-border);
+            font-size: 10px;
+            transition: transform 0.5s ease;
+        }
+
+        .dropdown-trigger:hover .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        /* 下拉核心動畫 */
+        .dropdown-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+            opacity: 0;
+        }
+
+        .dropdown-trigger:hover .dropdown-content {
+            max-height: 600px;
+            opacity: 1;
+            margin-top: 1rem;
+        }
+
+        .dropdown-body {
+            padding-top: 1rem;
+            border-top: 1px solid var(--zinc-200);
+            margin-top: 0.75rem;
+        }
+
+        .dropdown-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.75rem;
+        }
+
+        .dropdown-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .dropdown-item-title {
+            font-weight: 700;
+            color: var(--zinc-600);
+            font-size: 0.75rem;
+        }
+
+        .dropdown-item-desc {
+            color: var(--zinc-400);
+            font-size: 0.75rem;
+            line-height: 1.6;
+        }
+
+        .dropdown-footer-code {
+            margin-top: 1rem;
+            padding: 0.75rem;
+            background-color: rgba(255, 255, 255, 0.5);
+            font-family: monospace;
+            font-size: 10px;
+            color: var(--dropdown-border);
+            border: 1px solid var(--zinc-200);
+            border-radius: 0.25rem;
+        }
+
+        /* 02 學習歷程 - 時間軸 */
+        .timeline-wrapper {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        /* 時間軸中軸線 */
+        .timeline-wrapper::after {
+            content: '';
+            position: absolute;
+            left: -34px;
+            top: 8px;
+            bottom: 8px;
+            width: 2px;
+            background-color: var(--zinc-200);
+        }
+
+        .timeline-item {
+            position: relative;
+        }
+
+        .timeline-node {
+            position: absolute;
+            left: -38px;
+            top: 8px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            z-index: 10;
+        }
+
+        .node-active {
+            background-color: var(--primary-brown);
+        }
+
+        .node-inactive {
+            background-color: var(--zinc-300);
+        }
+
+        .timeline-phase {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: -0.025em;
+            margin-bottom: 0.5rem;
+        }
+
+        .phase-active {
+            color: var(--primary-brown);
+        }
+
+        .phase-inactive {
+            color: var(--zinc-400);
+        }
+
+        .timeline-box {
+            border-radius: 0.125rem;
+            width: 100%;
+            border-bottom: 1px solid var(--zinc-200);
+        }
+
+        .box-active {
+            background-color: rgba(244, 242, 237, 0.5);
+        }
+
+        .box-inactive {
+            background-color: rgba(244, 242, 237, 0.3);
+        }
+
+        /* 03 查證與修正 */
+        .text-mod{
+            color: #52525b;
+            font-family: monospace;
+            font-size: 1rem;
+            text-indent: 2.5em;
+            margin: 2rem;
+        }
+
+        .verification-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .verification-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .verification-card {
+            padding: 1.5rem;
+            background-color: #FFFFFF;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .card-original {
+            border-top: 4px solid var(--zinc-300);
+        }
+
+        .card-corrected {
+            border-top: 4px solid var(--primary-brown);
+        }
+
+        .verification-title {
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .title-original {
+            color: var(--zinc-700);
+        }
+
+        .title-corrected {
+            color: var(--primary-brown);
+        }
+
+        .square-dot {
+            width: 8px;
+            height: 8px;
+            transform: rotate(45deg);
+        }
+
+        .dot-grey { background-color: var(--zinc-300); }
+        .dot-brown { background-color: var(--primary-brown); }
+
+        .verification-placeholder {
+            height: 6rem;
+            border-radius: 0.25rem;
+        }
+
+        .placeholder-grey {
+            background-color: var(--zinc-50);
+        }
+
+        .placeholder-warm {
+            background-color: var(--bg-color);
+            border: 1px solid var(--light-brown);
+        }
+
+        /* 04 視覺化說明 */
+        .visual-container {
+            aspect-ratio: 16 / 9;
+            background-color: var(--zinc-100);
+            border-radius: 0.125rem;
+            border: 1px solid var(--zinc-200);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--zinc-400);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .visual-inner {
+            z-index: 10;
+            text-align: center;
+        }
+
+        .visual-canvas-title {
+            font-family: monospace;
+            font-size: 0.875rem;
+        }
+
+        .visual-canvas-sub {
+            font-size: 10px;
+            margin-top: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+        }
+
+        .visual-overlay-grid {
+            position: absolute;
+            inset: 0;
+            opacity: 0.05;
+            pointer-events: none;
+            background-image: radial-gradient(var(--primary-brown) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        /* 05 應用案例 */
+        .cases-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 640px) {
+            .cases-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .case-card {
+            background-color: #FFFFFF;
+            border: 1px solid var(--zinc-200);
+            padding: 1.5rem;
+            border-radius: 0.125rem;
+            transition: all 0.3s ease;
+        }
+
+        .case-card:hover {
+            border-color: var(--primary-brown);
+        }
+
+        .case-bar {
+            width: 2rem;
+            height: 4px;
+            background-color: var(--zinc-200);
+            margin-bottom: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .case-card:hover .case-bar {
+            background-color: var(--primary-brown);
+        }
+
+        .case-title {
+            font-weight: 700;
+            color: var(--zinc-700);
+            transition: color 0.3s ease;
+        }
+
+        .case-card:hover .case-title {
+            color: var(--primary-brown);
+        }
+
+        .case-sub {
+            font-size: 0.75rem;
+            color: var(--zinc-400);
+            margin-top: 0.5rem;
+            font-style: italic;
+            font-family: monospace;
+        }
+
+        /* 06 學習與反思 */
+        .reflection-container {
+            background-color: var(--header-bg);
+            padding: 2.5rem;
+            border-radius: 0.125rem;
+            border-right: 8px solid var(--primary-brown);
+        }
+
+        .reflection-inner-width {
+            max-width: 42rem;
+        }
+
+        /* 保留使用者原有縮排及樣式 */
+        .reflection-paragraph {
+            color: var(--zinc-600);
+            line-height: 2;
+            font-style: italic;
+            text-indent: 2.5em; /* 這裡實現使用者希望的段落縮排效果 */
+            margin-bottom: 1.5rem;
+        }
+
+        /* 移除最後一個段落的下距 */
+        .reflection-paragraph:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .reflection-footer {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .reflection-footer-line {
+            width: 3rem;
+            height: 1px;
+            background-color: var(--primary-brown);
+            align-self: center;
+        }
+
+        .reflection-footer-tag {
+            color: var(--primary-brown);
+            font-family: monospace;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        /* 頁尾 */
+        .footer-container {
+            background-color: var(--zinc-800);
+            color: var(--zinc-500);
+            padding: 4rem 1.5rem;
+            text-align: center;
+        }
+
+        .footer-inner {
+            max-width: 20rem;
+            margin: 0 auto;
+            border-top: 1px solid #3F3F46; /* 稍淡的灰線 */
+            padding-top: 2rem;
+        }
+
+        .footer-version {
+            font-size: 10px;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+        }
+
+        .footer-copyright {
+            margin-top: 0.5rem;
+            font-weight: 300;
+            font-size: 0.75rem;
+        }
