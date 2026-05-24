@@ -119,13 +119,13 @@
                             <div class="dropdown-grid">
                                 <!-- 第一組內容 -->
                                 <div class="dropdown-item">
-                                    <p class="dropdown-item-title"></p>
-                                    <p class="dropdown-item-desc"></p>
+                                    <p class="dropdown-item-title">DDPM：</p>
+                                    <p class="dropdown-item-desc">Denoising Diffusion Probabilistic Models擴散模型，現代生成式AI核心基礎，運作模仿物體的空間擴散，分為前向過程Forward Process及反向過程Reverse Process。</p>
                                 </div>
                                 <!-- 第二組內容 -->
                                 <div class="dropdown-item">
-                                    <p class="dropdown-item-title"></p>
-                                    <p class="dropdown-item-desc"></p>
+                                    <p class="dropdown-item-title">VAE：</p>
+                                    <p class="dropdown-item-desc">Variational Autoencoder變分自編碼器，是在自編碼器（AE）的基礎上引入機率分布概念的改良版，傳統AE會將數據壓縮成一點（隱藏向量），導致隱藏空間不連續，難以生成新內容。VAE的編碼器產出的不再是固定數值，而是數據的機率分佈參數（通常是平均值與標準差），這樣確保隱藏空間（Latent Space）連續且有規律。最後在分布中進行採樣並交由解碼器還原，生成內容。原理穩健，具有生成速度快的優點，但基於最大似然估計，有著圖片較模糊的缺點。</p>
                                 </div>
                             </div>
                             <div class="dropdown-footer-code">
@@ -149,12 +149,36 @@
                     <div class="timeline-item">
                         <div class="timeline-node node-active"></div>
                         <p class="timeline-phase phase-active">Phase 01 / 初步探索</p>
-                        <div class="timeline-box box-active"></div>
+                        <div class="timeline-box box-active">Q：我對生成式AI演算法比較有興趣，請問上面列出的五個演算法，哪個在生成圖片上最泛用?哪個生成出的圖片最接近真實(如真人繪製、拍攝照片)?又哪個最不輕易被辨識出來呢?
+                            <br>
+                            A：
+                            <ol style="margin-left:35px ;">
+                            <li>哪個生成圖片最泛用？勝出者：Latent Diffusion Model (LDM)</li>
+                            <li>哪個生成的圖片最接近真實？勝出者：DDPM / LDM (擴散模型系列)</li>
+                            <li>哪個最不輕易被辨識出來（最難辨真偽）？短期爆發力：GAN；整體穩定度：LDM<br>這取決於辨識的對象是「人類肉眼」還是「AI 檢測器」。</li>
+                            </ol>
+
+                        </div>
+                        <div class="timeline-box box-active">Q：那請你幫我說明一下LDM的原理、用途、運作流程、應用
+                            <br>
+                            A：
+                            <ol style="margin-left:35px ;">
+                            <li>LDM 的原理</li>
+                            <li>運作流程</li>
+                            <li>LDM 的用途與應用</li>
+                            </ol>
+
+                        </div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-node node-inactive"></div>
                         <p class="timeline-phase phase-inactive">Phase 02 / 針對性問答</p>
-                        <div class="timeline-box box-inactive"></div>
+                        <div class="timeline-box box-inactive">Q：可以介紹DDPM和VAE的原理嗎</div>
+                        <div class="timeline-box box-inactive">Q：交叉注意力機制（Cross-Attention）是甚麼，以及介紹一下如何去噪</div>
+                        <div class="timeline-box box-inactive">Q：我想了解如何透過調整 去噪步數（Steps） 來影響最終圖片的品質</div>
+                        <div class="timeline-box box-inactive">Q：我對於另一個能控制圖片擬真度的參數 CFG Scale (提示詞遵循強度) 有興趣了解</div>
+                        <div class="timeline-box box-inactive">Q：回到ldm，我想知道在生成文字或其他內容時的原理、用途、運作流程、應用也是一樣的嗎</div>
+                        <div class="timeline-box box-inactive">Q：U-Net是甚麼</div>
                     </div>
                 </div>
             </div>
@@ -229,22 +253,22 @@
                     <!-- 案例 A -->
                     <div class="case-card">
                         <div class="case-bar"></div>
-                        <h5 class="case-title">應用案例 A</h5>
-                        <p class="case-sub">// Case application 01</p>
+                        <h5 class="case-title">文字生成圖片 (Text-to-Image Synthesis)</h5>
+                        <p class="case-sub"></p>
                     </div>
                     
                     <!-- 案例 B -->
                     <div class="case-card">
                         <div class="case-bar"></div>
-                        <h5 class="case-title">應用案例 B</h5>
-                        <p class="case-sub">// Case application 02</p>
+                        <h5 class="case-title">影像修復與物件移除 (Image Inpainting)</h5>
+                        <p class="case-sub"></p>
                     </div>
                     
                     <!-- 案例 C -->
                     <div class="case-card">
                         <div class="case-bar"></div>
-                        <h5 class="case-title">應用案例 C</h5>
-                        <p class="case-sub">// Case application 03</p>
+                        <h5 class="case-title">超解析度放大 (Super-Resolution)</h5>
+                        <p class="case-sub"></p>
                     </div>
                 </div>
             </div>
