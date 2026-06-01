@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LDM演算法學習筆記</title>
+    <title>LDM演算法筆記_111313208_郭岱倫</title>
     <!-- 引入字型與基礎重設 -->
      <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
@@ -149,25 +149,59 @@
                     <div class="timeline-item">
                         <div class="timeline-node node-active"></div>
                         <p class="timeline-phase phase-active">Phase 01 / 初步探索</p>
-                        <div class="timeline-box box-active">Q：我對生成式AI演算法比較有興趣，請問上面列出的五個演算法，哪個在生成圖片上最泛用?哪個生成出的圖片最接近真實(如真人繪製、拍攝照片)?又哪個最不輕易被辨識出來呢?
+                        <div class="timeline-box box-active">
+                            <h5 class="QAtitle">Q：我對生成式AI演算法比較有興趣，請問上面列出的五個演算法（AE、VAE、GAN、DDPM、LDM），哪個在生成圖片上最泛用?哪個生成出的圖片最接近真實(如真人繪製、拍攝照片)?又哪個最不輕易被辨識出來呢?<span class="QA-arrow">▼</span></h5>
+                            
                             <br>
+                            <div class="QAtext">    
                             A：
-                            <ol style="margin-left:35px ;">
-                            <li>哪個生成圖片最泛用？勝出者：Latent Diffusion Model (LDM)</li>
-                            <li>哪個生成的圖片最接近真實？勝出者：DDPM / LDM (擴散模型系列)</li>
-                            <li>哪個最不輕易被辨識出來（最難辨真偽）？短期爆發力：GAN；整體穩定度：LDM<br>這取決於辨識的對象是「人類肉眼」還是「AI 檢測器」。</li>
-                            </ol>
-
+                                <ol style="margin-left:35px ;">
+                                <li>哪個生成圖片最泛用？勝出者：Latent Diffusion Model (LDM)</li>
+                                <li>哪個生成的圖片最接近真實？勝出者：DDPM / LDM (擴散模型系列)</li>
+                                <li>哪個最不輕易被辨識出來（最難辨真偽）？短期爆發力：GAN；整體穩定度：LDM<br>這取決於辨識的對象是「人類肉眼」還是「AI 檢測器」。</li>
+                                </ol>
+                            </div>
                         </div>
-                        <div class="timeline-box box-active">Q：那請你幫我說明一下LDM的原理、用途、運作流程、應用
+                        <div class="timeline-box box-active">
+                            <h5 class="QAtitle">Q：那請你幫我說明一下LDM的原理、用途、運作流程、應用<span class="QA-arrow">▼</span></h5>
                             <br>
-                            A：
-                            <ol style="margin-left:35px ;">
-                            <li>LDM 的原理</li>
-                            <li>運作流程</li>
-                            <li>LDM 的用途與應用</li>
-                            </ol>
-
+                            <div class="QAtext">
+                                A：
+                                <ol style="margin-left:35px ;">
+                                <li>LDM 的原理</li>
+                                <p>LDM 的核心思維是「空間壓縮與轉換」。</p>
+                                <ul style="margin-left:35px ;">
+                                    <li>結合兩大技術：它結合了VAE的數據壓縮能力與DDPM的高質量生成能力。</li>
+                                    <li>潛在空間運算：傳統DDPM在原始的「像素空間（Pixel Space）」運作，計算量龐大。
+                                        LDM則是先利用VAE將圖片壓縮到一個維度較小、但保留核心特徵的「潛在空間（Latent Space）」進行去噪處理。</li>
+                                    <li>穩定與效率：在低維度的潛在空間中進行擴散過程，能大幅降低運算成本與記憶體消耗，讓普通等級的GPU也能跑出高品質圖像。</li>
+                                </ul>    
+                                <li>運作流程</li>
+                                <ul style="margin-left:35px ;">
+                                    <li>感知壓縮 (Perceptual Compression)： 使用 VAE 的編碼器將高解析度圖片壓縮成潛在向量（Latent Vector） 。</li>
+                                    <li>擴散過程 (Diffusion Process)：在潛在空間中進行，包含逐步加入雜訊的「前向過程」與學習去除雜訊的「反向過程」 。
+                                        <ul style="margin-left:35px ;"><li>此階段通常會加入「文字引導（Conditioning）」，透過交叉注意力機制（Cross-Attention）讓模型理解文字指令與圖像內容的對應關係 。</li></ul>
+                                    </li>
+                                    <li>影像還原 (Image Synthesis)： 去噪完成後，再利用 VAE 的解碼器將潛在向量還原回高解析度的原始像素圖片 。</li>
+                                </ul>   
+                                <li>LDM 的用途與應用</li>
+                                <ul style="margin-left:35px ;">
+                                    <p>LDM 因其效率與擬真度，成為目前最受歡迎的生成技術。</p>
+                                    <li>主要用途</li>
+                                    <ul style="margin-left:35px ;">
+                                        <li>提升生成效率： 克服了 DDPM 生成速度極慢的缺點 。</li>
+                                        <li>精確控制生成： 能夠輕鬆結合文字提示詞（Prompts）來導引圖片生成的內容與風格 。</li>
+                                    </ul>
+                                    <li>實際應用範例</li>
+                                    <ul style="margin-left:35px ;">
+                                        <li>Stable Diffusion： 全球最知名且開源的 LDM 應用模型 。</li>
+                                        <li>商業繪圖與藝術創作： 廣泛應用於插畫、角色設計及場景建模 。</li>
+                                        <li>室內設計與廣告開發： 透過文字描述快速產出多種風格的空間設計圖或行銷視覺 。</li>
+                                        <li>多模態模型基礎： 作為高階視覺研究與跨領域 AI 應用的核心骨幹 。</li>
+                                    </ul>
+                                </ul>
+                                </ol>
+                            </div>
                         </div>
                     </div>
                     <div class="timeline-item">

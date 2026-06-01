@@ -340,6 +340,13 @@
         }
 
         /* 02 學習歷程 - 時間軸 */
+        .QAtitle{
+            color: var(--zinc-600);
+            letter-spacing: 0.05em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
         .timeline-wrapper {
             position: relative;
             display: flex;
@@ -400,6 +407,14 @@
             border-radius: 0.125rem;
             width: 100%;
             border-bottom: 1px solid var(--zinc-200);
+
+            background-color: var(--dropdown-bg);
+            padding: 1rem;
+            border-radius: 0.125rem;
+            transition: all 0.3s ease;
+            margin-top: 1.5rem;
+
+            padding-bottom:0px ;
         }
 
         .box-active {
@@ -408,6 +423,30 @@
 
         .box-inactive {
             background-color: rgba(244, 242, 237, 0.3);
+        }
+
+        .QAtext{
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+            opacity: 0;
+            font-size: 14px;
+            margin-top: 0;
+        }
+        .timeline-box:hover .QAtext {
+            max-height: 800px;
+            opacity: 1;
+            margin-top: 1rem;
+            padding-bottom: 1rem;
+        }
+        .QA-arrow{
+            margin: 10px;
+            font-size: 10px;
+            transition: transform 0.5s ease;
+        }
+
+        .timeline-box:hover .QA-arrow {
+            transform: rotate(180deg);
         }
 
         /* 03 查證與修正 */
